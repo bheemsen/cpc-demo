@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, PageEvent } from '@angular/material';
-import { MockData } from './../common';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MockData } from '../../common';
 
 @Component({
   selector: 'grid',
@@ -75,10 +75,10 @@ export class GridComponent implements OnInit {
       this.selectedItems.splice(index, 1);
     }
   }
-
-
 }
 
+
+// I have created this model here for time being. In real application we need to place it seprately
 export class UserData {
   constructor(item) {
     Object.keys(item).forEach((prop) => { this[prop] = item[prop]; });

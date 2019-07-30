@@ -1,28 +1,24 @@
 import '../polyfills';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './materialModule';
 
 import { AppComponent } from './app.component';
-import { GridComponent } from './grid/grid.component';
-import { AgeFilterComponent } from './age-filter/age-filter.component';
-import { ActiveFilterPipe } from './active-filter.pipe'
+import { GridComponent } from './components/grid/grid.component';
+import { AgeFilterComponent } from './components/age-filter/age-filter.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GridComponent,
-    AgeFilterComponent,
-    ActiveFilterPipe
-  ],
+    AgeFilterComponent
+    ],
   imports: [
-    BrowserModule,
     MaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
