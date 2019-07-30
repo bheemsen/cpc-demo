@@ -1,0 +1,10 @@
+<mat-form-field style="width: 100%;">
+  <mat-label>Citizen Age</mat-label>
+  <mat-chip-list [(ngModel)]="selectedItems" multiple>
+    <mat-chip *ngFor="let item of chipItems" selectable="true" [selected]="isSelected(item)"
+      (selectionChange)="changeSelected($event,item)" (click)="toggleItem(item)">
+      {{item.count}} <br> {{item.text}}&nbsp;
+      <mat-icon>{{isSelected(item) ? "close" : "add"}}</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+</mat-form-field>

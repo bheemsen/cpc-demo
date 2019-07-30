@@ -1,0 +1,55 @@
+
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+
+.mat-table {
+  overflow: scroll;
+  max-height: auto;
+}
+
+
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.mat-paginator{
+  background: transparent;
+}
+.pageNumber{
+color: rgba(0,0,0,.87);
+margin-top: 1.7em;
+font-family: Roboto,"Helvetica Neue",sans-serif;
+font-size: 12px;
+}
+.center{
+  margin: 0px auto;
+}
+.mat-cell{
+  text-align: justify;
+  padding: 5px;
+}

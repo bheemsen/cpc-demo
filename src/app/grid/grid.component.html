@@ -1,0 +1,52 @@
+<div *ngIf="filterItems.length > 0">
+  <age-filter [chipItems]="filterItems" (selectionChange)="onChipSelectionChange($event)"></age-filter>
+</div>
+
+<mat-form-field class="example-chip-list" *ngIf="selectedItems.length>0">
+  <mat-chip-list aria-label="Selected Age Groups">
+    <mat-chip *ngFor="let item of selectedItems" [selectable]="selectable" [removable]="removable"
+      (removed)="removeFilterItem(item)">
+      {{item.text}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+</mat-form-field>
+
+<div class="example-header" *ngIf="filterRequired">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container *ngFor="let keyName of displayedColumns">
+      <ng-container [matColumnDef]="keyName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{keyName}} </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <span *ngIf="keyName !='Image'"> {{row[keyName]}}
+          </span>
+          <img *ngIf="keyName ==='Image'" src="assets/{{row[keyName]}}">
+          <button *ngIf="keyName ==='Action'" mat-raised-button color="primary">Edit</button>
+
+        </mat-cell>
+
+
+      </ng-container>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+  <div class="center">
+    <div class="pull-left pageNumber"> Current Page No : {{currentPageNo}}
+    </div>
+    <div class="pull-left">
+      <mat-paginator [showFirstLastButtons]=true [pageSize]=5 [pageSizeOptions]="[5, 10, 15, 100]"
+        (page)="onPaginateChange($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

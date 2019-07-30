@@ -1,0 +1,15 @@
+.mat-paginator-container {
+  flex: 0 0 auto;
+  display:inline;
+  float: left;
+  position: fixed;
+}
+
+::ng-deep .mat-select-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 300px;
+  width: 100%; 
+}
+
