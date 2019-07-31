@@ -33,6 +33,7 @@ export class GridComponent implements OnInit {
 
     this.users = MockData.data.map(item => new UserData(item));
     this.dataSource = new MatTableDataSource(this.users);
+    console.log(this.dataSource )
   }
 
   ngOnInit(): void {
@@ -58,6 +59,23 @@ export class GridComponent implements OnInit {
 
   onChipSelectionChange(e) {
     this.selectedItems = e.selected;
+    let filterdData : any [] =[]
+    this.selectedItems.forEach(item => {
+      let filterResult ;
+      if (item.range.includes('-')) {
+        let ageRange = item.range.split('-');
+         filterResult = this.users.filter(x => (x.Age >= parseInt(ageRange[0]) && x.Age <= parseInt(ageRange[1])));
+        item.count=filterResult.length;
+        filterResult.forEach(item => filterdData.push(item));
+      }
+      else {
+        filterResult = this.users.filter(x => (x.Age >= parseInt(item.range)));
+        filterResult.forEach(item => filterdData.push(item));
+        item.count=filterResult.length;
+      }
+      this.users=filterdData.map(item => new UserData(item));
+      this.dataSource=new MatTableDataSource(this.users);
+    });
   }
 
   onPaginateChange(event) {
