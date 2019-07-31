@@ -2,7 +2,9 @@
 
  I have used angular material and Angular 5.
 
- Clone the code from using git clone https://github.com/bheemsen/cpc-demo.git
+ Clone the code from git using  below command 
+ 
+ git clone https://github.com/bheemsen/cpc-demo.git
 
  Once cloning is done install packages. Run below command
 
